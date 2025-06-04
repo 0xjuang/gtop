@@ -5,6 +5,7 @@ import os
 
 def get_cpu_info():
     cpu_count = os.cpu_count()
+    cpu_physical = psutil.cpu_count(logical=False)
     cpu_percentage = psutil.cpu_percent(interval=1)
     cpu_stats = psutil.cpu_stats()
     cpu_freq = psutil.cpu_freq()
@@ -12,6 +13,7 @@ def get_cpu_info():
     
     return {
         "CPU_Count": cpu_count,
+        "CPU_Physical": cpu_physical,
         "CPU_Percent": cpu_percentage,
         "CPU_Stats": cpu_stats,
         "CPU_Freq": cpu_freq,
