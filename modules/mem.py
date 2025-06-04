@@ -1,8 +1,34 @@
 #!/usr/bin/env python3
+"""
+mem.py - Memory Metrics Module for gTOP
+=======================================
 
+This module collects memory usage statistics using psutil, including total,
+used, available, free, and percent usage values. Used internally by gtop.py
+to provide system snapshots.
+
+Author: Juan J. Garcia (@0xjuang)
+"""
+
+# ──[ Imports ]──────────────────────────────────────────────────────────────
+from pprint import pprint
 import psutil
 
+
+# ──[ Memory Info Collection ]───────────────────────────────────────────────
 def get_mem_info():
+    """
+    Collects memory usage statistics using psutil.
+
+    Returns:
+        dict: {
+            "Total": int - Total physical memory in bytes,
+            "Available": int - Available memory in bytes,
+            "Used": int - Memory used in bytes,
+            "Free": int - Free memory in bytes,
+            "Percent": float - Memory usage as a percentage
+        }
+    """
     v_mem = psutil.virtual_memory()
     return {
         "Total": v_mem.total,
@@ -12,9 +38,18 @@ def get_mem_info():
         "Percent": v_mem.percent,
     }
 
+
+# ──[ Debug Entry Point ]────────────────────────────────────────────────────
 def main():
-    from pprint import pprint
+    """
+    Debug entry point for standalone testing.
+
+    Prints the full dictionary of memory metrics returned by get_mem_info()
+    using pprint for readability. Intended for development use only.
+    """
     pprint(get_mem_info())
 
+
+# ──[ Entry Point ]───────────────────────────────────────────────────────────
 if __name__ == "__main__":
     main()
