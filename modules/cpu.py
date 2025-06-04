@@ -18,4 +18,9 @@ def get_cpu_info():
         "CPU_Load": cpu_load,
     }
 
-print(get_cpu_info())
+def main():
+    from pprint import pprint
+    pprint(get_cpu_info())
+
+if __name__ == "__main__":
+    main()

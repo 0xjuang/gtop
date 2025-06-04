@@ -12,4 +12,9 @@ def get_mem_info():
         "Percent": v_mem.percent,
     }
 
-print(get_mem_info())
+def main():
+    from pprint import pprint
+    pprint(get_mem_info())
+
+if __name__ == "__main__":
+    main()

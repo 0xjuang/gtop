@@ -33,8 +33,9 @@ def get_io_info():
         "Disk_Counter": disk_counter,
     }
 
-print(get_io_info())
+def main():
+    from pprint import pprint
+    pprint(get_io_info())
 
-
-
-
+if __name__ == "__main__":
+    main()

@@ -24,4 +24,9 @@ def get_net_info():
     }
 
 
-print(get_net_info())
+def main():
+    from pprint import pprint
+    pprint(get_net_info())
+
+if __name__ == "__main__":
+    main()
